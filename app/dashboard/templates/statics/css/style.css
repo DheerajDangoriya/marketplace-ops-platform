@@ -1,0 +1,58 @@
+body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont;
+            margin: 0;
+                background-color: #f4f6f9;
+                    color: #333;
+                    }
+
+                    header {
+                        background: #1f2937;
+                            color: white;
+                                padding: 16px 24px;
+                                }
+
+                                header h1 {
+                                    margin: 0;
+                                        font-size: 20px;
+                                        }
+
+                                        nav a {
+                                            color: #cbd5e1;
+                                                margin-right: 16px;
+                                                    text-decoration: none;
+                                                        font-size: 14px;
+                                                        }
+
+                                                        nav a:hover {
+                                                            color: white;
+                                                            }
+
+                                                            .container {
+                                                                padding: 24px;
+                                                                }
+
+                                                                .card {
+                                                                    background: white;
+                                                                        border-radius: 8px;
+                                                                            padding: 16px;
+                                                                                margin-bottom: 16px;
+                                                                                    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+                                                                                    }
+
+                                                                                    table {
+                                                                                        width: 100%;
+                                                                                            border-collapse: collapse;
+                                                                                            }
+
+                                                                                            th, td {
+                                                                                                padding: 10px;
+                                                                                                    border-bottom: 1px solid #e5e7eb;
+                                                                                                        text-align: left;
+                                                                                                        }
+
+                                                                                                        th {
+                                                                                                            background: #f9fafb;
+                                                                                                                font-size: 13px;
+                                                                                                                    text-transform: uppercase;
+                                                                                                                    }
+}

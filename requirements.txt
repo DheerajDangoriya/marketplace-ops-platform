@@ -9,3 +9,8 @@ python-dotenv
 apscheduler
 jinja2
 pytest
+python-jose
+passlib[bcrypt]
+alembic
+celery
+redis
