@@ -2,8 +2,6 @@ from fastapi import FastAPI, Depends
 from app.logging_config import logger
 from sqlalchemy.orm import Session
 from datetime import datetime
-from fastapi.staticfiles import StaticFiles
-
 from app.database import Base, engine, get_db, SessionLocal
 from app.services.workflow import run_workflow
 from app.services import marketplace
@@ -29,9 +27,6 @@ def startup():
 app.include_router(auth_router)
 app.include_router(order_routes.router)
 
-
-# Static files
-app.mount("/static", StaticFiles(directory="app/dashboard/templates/statics"), name="static")
 
 
 @app.get("/")
