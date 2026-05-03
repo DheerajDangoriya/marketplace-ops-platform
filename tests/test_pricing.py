@@ -1,4 +1,3 @@
-from app.services.pricing import select_best_source
 
 def test_select_best_source():
     sources = [
@@ -9,8 +8,6 @@ def test_select_best_source():
 
     result = select_best_source(sources)
     assert result["price"] == 80
-    import sys
-    import os
-    sys.path.append(os.path.abspath(os.path.abspath(".")))
+
                     
 from app.services.pricing import select_best_source

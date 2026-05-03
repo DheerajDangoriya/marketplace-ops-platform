@@ -1,4 +1,5 @@
 from fastapi import FastAPI, Depends
+from app.logging_config import logger
 from sqlalchemy.orm import Session
 from datetime import datetime
 from fastapi.staticfiles import StaticFiles
@@ -12,20 +13,25 @@ from app.routes import order_routes
 from app.models.order import OrderStatus
 from app.models.user import User
 from app.auth.utils import get_password_hash
-from app.services.workflow import run_workflow
 
-
-# Create database tables
-Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Fulfillment Automation System")
+
+
+# Create database tables on startup
+@app.on_event("startup")
+def startup():
+    Base.metadata.create_all(bind=engine)
+    create_admin()
+
 
 # Routers
 app.include_router(auth_router)
 app.include_router(order_routes.router)
 
+
 # Static files
-app.mount("/static", StaticFiles(directory="app/frontend/static"), name="static")
+app.mount("/static", StaticFiles(directory="app/dashboard/templates/statics"), name="static")
 
 
 @app.get("/")
@@ -47,6 +53,7 @@ def get_new_orders(db: Session = Depends(get_db)):
 def run(db: Session = Depends(get_db)):
     run_workflow(db)
     return {"message": "Workflow executed"}
+
 
 @app.put("/orders/{order_id}/status")
 def change_order_status(
@@ -80,6 +87,3 @@ def create_admin():
         db.commit()
 
     db.close()
-
-
-create_admin()
