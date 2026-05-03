@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+sqlalchemy
+pydantic
+requests
+beautifulsoup4
+lxml
+python-dotenv
+apscheduler
+jinja2
+pytest
+python-jose
+passlib[bcrypt]
+alembic
+celery
+redis
+python-multipart
